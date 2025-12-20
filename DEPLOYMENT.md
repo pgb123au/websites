@@ -1,15 +1,24 @@
 # Website Deployment Guide
 
-All 4 websites are built and ready for deployment to their respective domains.
+All 4 websites are built and **successfully deployed** to Netlify.
+
+## Deployed Sites
+
+| Domain | Netlify URL | Site ID | Status |
+|--------|-------------|---------|--------|
+| **lakepakenham.com** | https://lakepakenham.com | 0e547869-b9d2-44d8-bdba-ce78104258d9 | ✅ Live (custom domain) |
+| **irentmy.com** | https://irentmy-com.netlify.app | 9d457076-1dfa-456f-952a-a8416cd2a252 | ✅ Deployed (needs DNS) |
+| **trainingrobot.com** | https://trainingrobot-com.netlify.app | ae337466-1bd5-4e13-88ab-bf27b83b6d9f | ✅ Deployed (needs DNS) |
+| **gptbuilder.au** | https://gptbuilder-au.netlify.app | 50faa887-d33d-42ee-87d8-1078d855b6a9 | ✅ Deployed (needs DNS) |
 
 ## Websites Built
 
 | Domain | Status | Description |
 |--------|--------|-------------|
-| **irentmy.com** | ✅ Built | Peer-to-peer rental marketplace platform |
-| **trainingrobot.com** | ✅ Built | Robotics training & AI education platform |
-| **gptbuilder.au** | ✅ Built | Custom AI solutions for Australian business |
-| **lakepakenham.com** | ✅ Built | Complete guide to all lakes in Pakenham, Victoria |
+| **irentmy.com** | ✅ Built & Deployed | Peer-to-peer rental marketplace platform |
+| **trainingrobot.com** | ✅ Built & Deployed | Robotics training & AI education platform |
+| **gptbuilder.au** | ✅ Built & Deployed | Custom AI solutions for Australian business |
+| **lakepakenham.com** | ✅ Built & Deployed | Complete guide to all lakes in Pakenham, Victoria |
 
 ## Deployment Instructions
 
@@ -56,16 +65,38 @@ netlify deploy --prod --dir=.
 
 ## DNS Configuration
 
-After deploying to Netlify, configure DNS in GoDaddy for each domain:
+### Step 1: Add Custom Domains in Netlify
 
-### For Netlify-hosted sites:
+For each of the 3 new sites, add the custom domain in Netlify:
 
-**Add these DNS records in GoDaddy:**
+**irentmy.com:**
+1. Go to https://app.netlify.com/projects/irentmy-com/settings/domain
+2. Click "Add custom domain"
+3. Enter `irentmy.com`
+4. Follow Netlify's DNS instructions
+
+**trainingrobot.com:**
+1. Go to https://app.netlify.com/projects/trainingrobot-com/settings/domain
+2. Click "Add custom domain"
+3. Enter `trainingrobot.com`
+4. Follow Netlify's DNS instructions
+
+**gptbuilder.au:**
+1. Go to https://app.netlify.com/projects/gptbuilder-au/settings/domain
+2. Click "Add custom domain"
+3. Enter `gptbuilder.au`
+4. Follow Netlify's DNS instructions
+
+### Step 2: Configure DNS in GoDaddy
+
+**Option A: Use Netlify's DNS records (easier):**
+
+For each domain in GoDaddy DNS management, add these records:
 
 ```
 Type: CNAME
 Name: www
-Value: [your-netlify-site-name].netlify.app
+Value: [site-name].netlify.app
 TTL: 1 Hour
 
 Type: A
@@ -74,11 +105,15 @@ Value: 75.2.60.5
 TTL: 1 Hour
 ```
 
-**Or use Netlify DNS (recommended):**
+**Specific values:**
+- irentmy.com → www CNAME to `irentmy-com.netlify.app`
+- trainingrobot.com → www CNAME to `trainingrobot-com.netlify.app`
+- gptbuilder.au → www CNAME to `gptbuilder-au.netlify.app`
+
+**Option B: Use Netlify DNS (recommended for new sites):**
 1. In Netlify site settings, go to "Domain management"
-2. Click "Add custom domain"
-3. Enter your domain (e.g., `irentmy.com`)
-4. Follow instructions to update nameservers in GoDaddy
+2. Click "Use Netlify DNS"
+3. Update nameservers in GoDaddy to point to Netlify's nameservers
 
 ## Domain-Specific Deployment Details
 
