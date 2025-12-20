@@ -3,122 +3,718 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lake Pakenham - Community & Recreation</title>
-    <meta name="description" content="Lake Pakenham community information, events, and recreation - Pakenham, Victoria">
+    <title>Lake Pakenham - Discover All Lakes in Pakenham, Victoria</title>
+    <meta name="description" content="Your complete guide to all lakes in Pakenham, Victoria. Lake Pakenham, Officer Lakes, Cardinia Reservoir, and more. Recreation, fishing, walking trails, and community events.">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
             background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            min-height: 100vh;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 650px;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .container {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            max-width: 600px;
-            margin: 2rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .tagline {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 2rem;
-        }
-        .description {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-        .features {
-            text-align: left;
-            margin: 2rem 0;
-        }
-        .features ul {
-            list-style: none;
-        }
-        .features li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
             position: relative;
         }
-        .features li:before {
+
+        .location-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero .description {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: white;
+            color: #11998e;
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 90px 20px;
+        }
+
+        h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #11998e;
+        }
+
+        /* Lakes Section */
+        .lakes {
+            background: #f8f9fa;
+        }
+
+        .lake-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .lake-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .lake-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+        }
+
+        .lake-header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .lake-header h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .lake-header .location {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .lake-content {
+            padding: 35px;
+        }
+
+        .lake-content p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .lake-features {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .lake-features li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #4a5568;
+            font-size: 1.05rem;
+        }
+
+        .lake-features li:before {
             content: "🌊";
             position: absolute;
             left: 0;
+            font-size: 1.2rem;
         }
-        .status {
-            background: #e0f7fa;
-            border-left: 4px solid #11998e;
-            padding: 1rem;
-            margin-top: 2rem;
-            border-radius: 5px;
-        }
-        .status p {
-            color: #11998e;
-            font-weight: 600;
-        }
-        .location {
+
+        .map-button {
             display: inline-block;
-            background: #38ef7d;
+            background: #11998e;
             color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
             font-weight: 600;
-            margin-bottom: 1rem;
+            transition: all 0.3s;
+            margin-top: 15px;
         }
+
+        .map-button:hover {
+            background: #0d7a6f;
+            transform: scale(1.05);
+        }
+
+        /* Activities Section */
+        .activities {
+            background: white;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 35px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .activity-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 45px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .activity-card:hover {
+            transform: scale(1.05);
+        }
+
+        .activity-icon {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+        }
+
+        .activity-card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+
+        .activity-card p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Visitor Info */
+        .visitor-info {
+            background: #f8f9fa;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: white;
+            padding: 40px 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid #11998e;
+        }
+
+        .info-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #11998e;
+        }
+
+        .info-card p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .info-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .info-card ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #4a5568;
+        }
+
+        .info-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #11998e;
+            font-weight: bold;
+        }
+
+        /* Community Section */
+        .community {
+            background: white;
+        }
+
+        .community-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .community-content p {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .community-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .community-feature {
+            padding: 30px 20px;
+        }
+
+        .community-feature .icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .community-feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #11998e;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .cta-section p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-input {
+            padding: 18px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            width: 100%;
+        }
+
+        .form-textarea {
+            padding: 18px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            width: 100%;
+            margin-bottom: 20px;
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background: white;
+            color: #11998e;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
         footer {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-            color: #999;
-            font-size: 0.9rem;
+            background: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.4rem;
+            }
+
+            h2 {
+                font-size: 2.3rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .location-badge {
+                position: static;
+                display: inline-block;
+                margin-bottom: 20px;
+            }
+
+            .lake-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="location">📍 Pakenham, Victoria</div>
-        <h1>Lake Pakenham</h1>
-        <p class="tagline">Your Local Community Hub</p>
-        <p class="description">
-            Discover Lake Pakenham - a beautiful natural space in the heart of Pakenham.
-            Your source for local events, recreation, and community information.
-        </p>
-        <div class="features">
-            <ul>
-                <li>Community events & activities</li>
-                <li>Lake recreation information</li>
-                <li>Environmental updates</li>
-                <li>Local visitor guide</li>
-            </ul>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="location-badge">📍 Pakenham, Victoria</div>
+        <div class="hero-content">
+            <h1>Lake Pakenham</h1>
+            <p class="tagline">Discover All Lakes in Pakenham</p>
+            <p class="description">
+                Your complete guide to the beautiful lakes and waterways of Pakenham, Victoria.
+                Explore nature, recreation, and community right on your doorstep.
+            </p>
+            <a href="#lakes" class="cta-button">Explore Our Lakes</a>
         </div>
-        <div class="status">
-            <p>🚧 Coming Soon - Website Under Development</p>
+    </section>
+
+    <!-- Lakes Section -->
+    <section class="lakes" id="lakes">
+        <div class="container">
+            <h2>Pakenham's Beautiful Lakes</h2>
+            <div class="lake-grid">
+                <!-- Lake Pakenham -->
+                <div class="lake-card">
+                    <div class="lake-header">
+                        <h3>Lake Pakenham</h3>
+                        <p class="location">Main Recreational Lake</p>
+                    </div>
+                    <div class="lake-content">
+                        <p>The main recreational lake in Pakenham, perfect for family outings, fishing, and peaceful walks around the scenic wetlands.</p>
+                        <ul class="lake-features">
+                            <li>Wetland reserve</li>
+                            <li>Walking and cycling tracks</li>
+                            <li>Birdwatching opportunities</li>
+                            <li>Picnic facilities</li>
+                            <li>Dog-friendly areas</li>
+                        </ul>
+                        <a href="https://www.google.com/maps/place/Lake+Pakenham/@-38.0739,145.4833,15z" target="_blank" class="map-button">📍 View on Google Maps</a>
+                    </div>
+                </div>
+
+                <!-- Officer Lakes -->
+                <div class="lake-card">
+                    <div class="lake-header">
+                        <h3>Officer Lakes</h3>
+                        <p class="location">Officer (Near Pakenham)</p>
+                    </div>
+                    <div class="lake-content">
+                        <p>Beautiful interconnected lakes in nearby Officer, featuring modern parklands, playgrounds, and extensive walking trails.</p>
+                        <ul class="lake-features">
+                            <li>Multiple connected lakes</li>
+                            <li>Modern playgrounds</li>
+                            <li>BBQ and picnic areas</li>
+                            <li>Fishing platforms</li>
+                            <li>Shared walking/cycling paths</li>
+                        </ul>
+                        <a href="https://www.google.com/maps/place/Starling+Lake/@-38.0614,145.4192,15z" target="_blank" class="map-button">📍 View on Google Maps</a>
+                    </div>
+                </div>
+
+                <!-- Cardinia Reservoir -->
+                <div class="lake-card">
+                    <div class="lake-header">
+                        <h3>Cardinia Reservoir</h3>
+                        <p class="location">Emerald-Pakenham Area</p>
+                    </div>
+                    <div class="lake-content">
+                        <p>Major water reservoir serving Melbourne, surrounded by the stunning Cardinia Reservoir Park with extensive recreational facilities.</p>
+                        <ul class="lake-features">
+                            <li>440-hectare park</li>
+                            <li>40km of trails</li>
+                            <li>Lookout points</li>
+                            <li>Visitor center</li>
+                            <li>Mountain biking tracks</li>
+                        </ul>
+                        <a href="https://www.google.com/maps/place/Cardinia+Reservoir+Park/@-37.9833,145.4333,15z" target="_blank" class="map-button">📍 View on Google Maps</a>
+                    </div>
+                </div>
+
+                <!-- Heritage Springs Lake -->
+                <div class="lake-card">
+                    <div class="lake-header">
+                        <h3>Heritage Springs Lake</h3>
+                        <p class="location">Heritage Springs Estate</p>
+                    </div>
+                    <div class="lake-content">
+                        <p>Central feature of the Heritage Springs residential estate, offering peaceful waterside living and community recreation.</p>
+                        <ul class="lake-features">
+                            <li>Residential estate lake</li>
+                            <li>Walking paths</li>
+                            <li>Landscaped parklands</li>
+                            <li>Community spaces</li>
+                            <li>Water features</li>
+                        </ul>
+                        <a href="https://www.google.com/maps/place/Heritage+Springs+Lake/@-38.0919,145.5044,16z" target="_blank" class="map-button">📍 View on Google Maps</a>
+                    </div>
+                </div>
+
+                <!-- Lakeside Estate Lakes -->
+                <div class="lake-card">
+                    <div class="lake-header">
+                        <h3>Lakeside Estate Lakes</h3>
+                        <p class="location">Pakenham Lakeside</p>
+                    </div>
+                    <div class="lake-content">
+                        <p>Multiple smaller lakes within the Lakeside residential development, creating a scenic waterside community environment.</p>
+                        <ul class="lake-features">
+                            <li>Multiple estate lakes</li>
+                            <li>Walking circuits</li>
+                            <li>Parks and reserves</li>
+                            <li>Playground facilities</li>
+                            <li>Community gathering spaces</li>
+                        </ul>
+                        <a href="https://www.google.com/maps/place/Lakeside,+Pakenham+VIC+3810/@-38.0833,145.4833,14z" target="_blank" class="map-button">📍 View on Google Maps</a>
+                    </div>
+                </div>
+
+                <!-- Toomuc Reserve Wetlands -->
+                <div class="lake-card">
+                    <div class="lake-header">
+                        <h3>Toomuc Reserve Wetlands</h3>
+                        <p class="location">Pakenham Upper</p>
+                    </div>
+                    <div class="lake-content">
+                        <p>Natural wetland system along Toomuc Creek, important for local ecology and featuring walking trails through native vegetation.</p>
+                        <ul class="lake-features">
+                            <li>Natural wetlands</li>
+                            <li>Native wildlife habitat</li>
+                            <li>Creek walking trails</li>
+                            <li>Environmental education</li>
+                            <li>Bird observation areas</li>
+                        </ul>
+                        <a href="https://www.google.com/maps/place/Toomuc+Reserve/@-38.0667,145.4833,15z" target="_blank" class="map-button">📍 View on Google Maps</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <footer>
-            <p>lakepakenham.com &copy; 2025</p>
-        </footer>
-    </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="activities">
+        <div class="container">
+            <h2>What You Can Do</h2>
+            <div class="activity-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">🎣</div>
+                    <h3>Fishing</h3>
+                    <p>Enjoy freshwater fishing in designated areas across our lakes</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🚶‍♀️</div>
+                    <h3>Walking Trails</h3>
+                    <p>Explore scenic paths around lakes and through native bushland</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🦆</div>
+                    <h3>Birdwatching</h3>
+                    <p>Spot native waterbirds and local wildlife in natural habitats</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🚴‍♂️</div>
+                    <h3>Cycling</h3>
+                    <p>Ride on dedicated bike paths and shared trails</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">🧺</div>
+                    <h3>Picnics</h3>
+                    <p>Family gatherings at BBQ and picnic facilities</p>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-icon">📸</div>
+                    <h3>Photography</h3>
+                    <p>Capture stunning sunrises, sunsets, and wildlife</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visitor Information -->
+    <section class="visitor-info">
+        <div class="container">
+            <h2>Visitor Information</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">🅿️</div>
+                    <h3>Getting There</h3>
+                    <p>Most lakes have dedicated parking areas and are easily accessible by car. Public transport available to main areas.</p>
+                    <ul>
+                        <li>Free parking at most locations</li>
+                        <li>Train: Pakenham Station</li>
+                        <li>Bus routes available</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🏞️</div>
+                    <h3>Facilities</h3>
+                    <p>Well-maintained facilities to make your visit comfortable and enjoyable.</p>
+                    <ul>
+                        <li>Toilets and change rooms</li>
+                        <li>BBQ and picnic areas</li>
+                        <li>Playgrounds for children</li>
+                        <li>Dog exercise areas</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">☀️</div>
+                    <h3>Best Times</h3>
+                    <p>Enjoy the lakes year-round, with each season offering unique experiences.</p>
+                    <ul>
+                        <li>Spring: Wildflowers & nesting birds</li>
+                        <li>Summer: Early mornings best</li>
+                        <li>Autumn: Stunning foliage</li>
+                        <li>Winter: Migratory bird watching</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community">
+        <div class="container">
+            <h2>Our Community</h2>
+            <div class="community-content">
+                <p>Pakenham's lakes are at the heart of our growing community, providing spaces for recreation, relaxation, and connection with nature.</p>
+                <div class="community-features">
+                    <div class="community-feature">
+                        <div class="icon">🌱</div>
+                        <h3>Conservation</h3>
+                        <p>Protecting local ecosystems and native wildlife habitats</p>
+                    </div>
+                    <div class="community-feature">
+                        <div class="icon">👨‍👩‍👧‍👦</div>
+                        <h3>Family Friendly</h3>
+                        <p>Safe, accessible spaces for families and all ages</p>
+                    </div>
+                    <div class="community-feature">
+                        <div class="icon">🎉</div>
+                        <h3>Events</h3>
+                        <p>Community gatherings, festivals, and activities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>Have questions, feedback, or want to share your lake experience?</p>
+            <form class="contact-form" action="#" method="post">
+                <div class="form-row">
+                    <input type="text" class="form-input" placeholder="Your Name" required>
+                    <input type="email" class="form-input" placeholder="Email Address" required>
+                </div>
+                <textarea class="form-textarea" placeholder="Your message or feedback..." required></textarea>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LakePakenham.com - Your Guide to Pakenham's Lakes & Waterways</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Community resource for Pakenham, Victoria, Australia</p>
+        </div>
+    </footer>
 </body>
 </html>
