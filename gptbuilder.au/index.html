@@ -4,121 +4,620 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPT Builder - Custom AI Solutions for Australian Business</title>
-    <meta name="description" content="Build custom GPT applications and AI solutions for your Australian business">
+    <meta name="description" content="Build custom GPT applications and AI chatbots for your Australian business. Expert AI consulting, development, and support.">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
             background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            min-height: 100vh;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 700px;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .container {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            max-width: 600px;
-            margin: 2rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .tagline {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 2rem;
-        }
-        .description {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-        .features {
-            text-align: left;
-            margin: 2rem 0;
-        }
-        .features ul {
-            list-style: none;
-        }
-        .features li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
             position: relative;
         }
-        .features li:before {
-            content: "✨";
+
+        .au-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero .description {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: #00d4ff;
+            color: #0f2027;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(0,212,255,0.4);
+        }
+
+        .cta-button:hover {
+            background: #00bce6;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.5);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 90px 20px;
+        }
+
+        h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #0f2027;
+        }
+
+        /* Services */
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 45px 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-top: 5px solid #00d4ff;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #0f2027;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .service-card ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #4a5568;
+        }
+
+        .service-card ul li:before {
+            content: "✓";
             position: absolute;
             left: 0;
+            color: #00d4ff;
+            font-weight: bold;
         }
-        .status {
-            background: #e8f5e9;
-            border-left: 4px solid #2c5364;
-            padding: 1rem;
-            margin-top: 2rem;
-            border-radius: 5px;
+
+        /* Use Cases */
+        .use-cases {
+            background: white;
         }
-        .status p {
-            color: #2c5364;
-            font-weight: 600;
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
-        .badge {
-            display: inline-block;
-            background: #ff9800;
+
+        .use-case-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
         }
+
+        .use-case-card:hover {
+            transform: scale(1.05);
+        }
+
+        .use-case-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .use-case-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .use-case-card p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+
+        /* Why Australian */
+        .why-au {
+            background: #f8f9fa;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 35px 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .why-icon {
+            font-size: 5rem;
+            margin-bottom: 25px;
+        }
+
+        .why-card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+            color: #0f2027;
+        }
+
+        .why-card p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Process */
+        .process {
+            background: white;
+        }
+
+        .process-steps {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 45px;
+            background: #f8f9fa;
+            padding: 35px;
+            border-radius: 15px;
+            border-left: 5px solid #00d4ff;
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-right: 30px;
+        }
+
+        .process-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: #0f2027;
+        }
+
+        .process-content p {
+            color: #4a5568;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .cta-section p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-input {
+            padding: 18px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            width: 100%;
+        }
+
+        .form-textarea {
+            padding: 18px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            width: 100%;
+            margin-bottom: 20px;
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background: #00d4ff;
+            color: #0f2027;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #00bce6;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
         footer {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-            color: #999;
-            font-size: 0.9rem;
+            background: #0f2027;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.4rem;
+            }
+
+            h2 {
+                font-size: 2.3rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .au-badge {
+                position: static;
+                display: inline-block;
+                margin-bottom: 20px;
+            }
+
+            .process-step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .process-number {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="badge">🇦🇺 Australian AI Services</div>
-        <h1>GPT Builder</h1>
-        <p class="tagline">Custom AI Solutions for Australian Business</p>
-        <p class="description">
-            Transform your business with custom GPT applications, AI chatbots, and intelligent
-            automation solutions built specifically for the Australian market.
-        </p>
-        <div class="features">
-            <ul>
-                <li>Custom GPT development</li>
-                <li>AI chatbot solutions</li>
-                <li>OpenAI API integration</li>
-                <li>Australian business consulting</li>
-            </ul>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="au-badge">🇦🇺 Australian AI Experts</div>
+        <div class="hero-content">
+            <h1>GPT Builder</h1>
+            <p class="tagline">Custom AI Solutions for Australian Business</p>
+            <p class="description">
+                Transform your business with custom GPT applications, intelligent chatbots, and AI automation.
+                Built by Australian AI experts who understand your market.
+            </p>
+            <a href="#contact" class="cta-button">Get Your Free Consultation</a>
         </div>
-        <div class="status">
-            <p>🚧 Coming Soon - Website Under Development</p>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Custom GPT Development</h3>
+                    <p>Build tailored GPT applications designed specifically for your business needs and workflows.</p>
+                    <ul>
+                        <li>Custom knowledge bases</li>
+                        <li>Industry-specific training</li>
+                        <li>Brand voice integration</li>
+                        <li>API integrations</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💬</div>
+                    <h3>AI Chatbot Solutions</h3>
+                    <p>Intelligent customer service chatbots that understand context and deliver exceptional experiences.</p>
+                    <ul>
+                        <li>24/7 customer support</li>
+                        <li>Multi-channel deployment</li>
+                        <li>CRM integration</li>
+                        <li>Analytics & insights</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>AI Automation</h3>
+                    <p>Automate repetitive tasks and workflows with intelligent AI-powered solutions.</p>
+                    <ul>
+                        <li>Document processing</li>
+                        <li>Email automation</li>
+                        <li>Data extraction</li>
+                        <li>Report generation</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>AI Strategy Consulting</h3>
+                    <p>Expert guidance on implementing AI in your organization for maximum ROI.</p>
+                    <ul>
+                        <li>AI readiness assessment</li>
+                        <li>Use case identification</li>
+                        <li>Implementation roadmap</li>
+                        <li>Team training</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <footer>
-            <p>gptbuilder.au &copy; 2025</p>
-        </footer>
-    </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases">
+        <div class="container">
+            <h2>What Can AI Do For You?</h2>
+            <div class="use-case-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">📞</div>
+                    <h3>Customer Service</h3>
+                    <p>Handle inquiries, bookings, and support 24/7 with AI-powered assistance</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">📊</div>
+                    <h3>Data Analysis</h3>
+                    <p>Extract insights from documents, reports, and databases instantly</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">✍️</div>
+                    <h3>Content Creation</h3>
+                    <p>Generate marketing copy, reports, and content at scale</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🔍</div>
+                    <h3>Research & Summarization</h3>
+                    <p>Analyze and summarize large volumes of information quickly</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🛠️</div>
+                    <h3>Internal Tools</h3>
+                    <p>Build custom AI assistants for employee productivity</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🎓</div>
+                    <h3>Training & Onboarding</h3>
+                    <p>AI-powered training assistants for new employees</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Australian -->
+    <section class="why-au">
+        <div class="container">
+            <h2>Why Choose Australian AI Experts?</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">🇦🇺</div>
+                    <h3>Local Expertise</h3>
+                    <p>We understand Australian business practices, compliance requirements, and market nuances.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🕐</div>
+                    <h3>AEST Support</h3>
+                    <p>Real-time support during Australian business hours. No waiting for overseas time zones.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🔒</div>
+                    <h3>Data Privacy</h3>
+                    <p>Australian-compliant data handling and privacy standards. Your data stays secure.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🤝</div>
+                    <h3>Proven Track Record</h3>
+                    <p>Trusted by Australian businesses across healthcare, retail, professional services, and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process">
+        <div class="container">
+            <h2>How We Work</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <div class="process-content">
+                        <h3>Discovery Call</h3>
+                        <p>We learn about your business, challenges, and goals. Identify the best AI opportunities for immediate impact.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <div class="process-content">
+                        <h3>Custom Proposal</h3>
+                        <p>Receive a detailed proposal with scope, timeline, and pricing. No surprises, no hidden costs.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <div class="process-content">
+                        <h3>Build & Test</h3>
+                        <p>We develop your custom AI solution with regular check-ins and iterations based on your feedback.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <div class="process-content">
+                        <h3>Launch & Support</h3>
+                        <p>Deploy your solution with full training for your team and ongoing support to ensure success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Business with AI?</h2>
+            <p>Get a free consultation with our AI experts. Let's discuss how custom GPT solutions can drive your business forward.</p>
+            <form class="contact-form" action="#" method="post">
+                <div class="form-row">
+                    <input type="text" class="form-input" placeholder="Your Name" required>
+                    <input type="email" class="form-input" placeholder="Email Address" required>
+                </div>
+                <div class="form-row">
+                    <input type="tel" class="form-input" placeholder="Phone Number" required>
+                    <input type="text" class="form-input" placeholder="Company Name" required>
+                </div>
+                <textarea class="form-textarea" placeholder="Tell us about your project or AI needs..." required></textarea>
+                <button type="submit" class="submit-button">Book Free Consultation</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 GPTBuilder.au - Australian AI Solutions & Custom GPT Development</p>
+        </div>
+    </footer>
 </body>
 </html>
