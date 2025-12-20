@@ -3,86 +3,416 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iRentMy - Rental Marketplace Platform</title>
-    <meta name="description" content="Peer-to-peer rental marketplace - Rent anything, anytime, anywhere">
+    <title>iRentMy - Rent Anything From Your Neighbors</title>
+    <meta name="description" content="Turn your unused items into income. Rent tools, equipment, cameras, and more from people in your community.">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            min-height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .container {
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero .description {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
             background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            max-width: 600px;
-            margin: 2rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            color: #667eea;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2d3748;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: #f7fafc;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: transform 0.3s;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+
+        .step p {
+            color: #4a5568;
+            font-size: 1.05rem;
+        }
+
+        /* Categories */
+        .categories {
+            background: white;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Benefits */
+        .benefits {
+            background: #f7fafc;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .benefit {
             text-align: center;
         }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+
+        .benefit-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
         }
-        .tagline {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 2rem;
+
+        .benefit h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2d3748;
         }
-        .description {
+
+        .benefit p {
+            color: #4a5568;
             font-size: 1.1rem;
-            color: #555;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
             margin-bottom: 2rem;
-            line-height: 1.8;
+            opacity: 0.95;
         }
-        .status {
-            background: #f0f4ff;
-            border-left: 4px solid #667eea;
-            padding: 1rem;
-            margin-top: 2rem;
-            border-radius: 5px;
+
+        .email-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
         }
-        .status p {
-            color: #667eea;
+
+        .email-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+        }
+
+        .submit-button {
+            background: #2d3748;
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
             font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
         }
+
+        .submit-button:hover {
+            background: #1a202c;
+        }
+
+        /* Footer */
         footer {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-            color: #999;
-            font-size: 0.9rem;
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>iRentMy</h1>
-        <p class="tagline">Your Rental Marketplace Platform</p>
-        <p class="description">
-            Discover the future of peer-to-peer rentals. From equipment to spaces,
-            iRentMy connects people who have items to share with those who need them.
-        </p>
-        <div class="status">
-            <p>🚧 Coming Soon - Website Under Development</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>iRentMy</h1>
+            <p class="tagline">Rent Anything From Your Neighbors</p>
+            <p class="description">
+                Turn your unused items into income. Borrow instead of buying.
+                Join the sharing economy in your community.
+            </p>
+            <a href="#join" class="cta-button">Get Early Access</a>
         </div>
-        <footer>
-            <p>irentmy.com &copy; 2025</p>
-        </footer>
-    </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>List Your Item</h3>
+                    <p>Take a photo, add a description, and set your rental price. It takes less than 5 minutes.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Requests</h3>
+                    <p>Neighbors browse and request to rent your items. You approve what works for you.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Earn Money</h3>
+                    <p>Hand over your item, get paid securely, and earn passive income from what you own.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2>What Can You Rent?</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">🔨</div>
+                    <div>Tools & Equipment</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📷</div>
+                    <div>Cameras & Tech</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🚴</div>
+                    <div>Sports Gear</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🎉</div>
+                    <div>Party Supplies</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏕️</div>
+                    <div>Camping Gear</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🎮</div>
+                    <div>Gaming Consoles</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🎸</div>
+                    <div>Musical Instruments</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🚗</div>
+                    <div>Vehicles</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits">
+        <div class="container">
+            <h2>Why Choose iRentMy?</h2>
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Save Money</h3>
+                    <p>Why buy when you can rent for a fraction of the cost? Perfect for one-time projects.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">🌱</div>
+                    <h3>Sustainability</h3>
+                    <p>Reduce waste by sharing resources. Better for your wallet and the planet.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Community</h3>
+                    <p>Connect with neighbors, build trust, and strengthen your local community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="join">
+        <div class="container">
+            <h2>Join the Waitlist</h2>
+            <p>Be the first to know when we launch in your area</p>
+            <form class="email-form" action="#" method="post">
+                <input type="email" class="email-input" placeholder="Enter your email" required>
+                <button type="submit" class="submit-button">Notify Me</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 iRentMy.com - Peer-to-peer rental marketplace</p>
+        </div>
+    </footer>
 </body>
 </html>
