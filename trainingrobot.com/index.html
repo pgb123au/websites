@@ -3,111 +3,599 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrainingRobot - Robotics Training & AI Education</title>
-    <meta name="description" content="Learn robotics, AI, and automation through expert-led training">
+    <title>TrainingRobot - Master Robotics & AI Automation</title>
+    <meta name="description" content="Learn robotics, AI, and automation through expert-led courses. From beginner to advanced, master the future of technology.">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            min-height: 100vh;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 650px;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
-        .container {
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><circle cx="100" cy="100" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="300" cy="200" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="500" cy="150" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="700" cy="250" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="900" cy="100" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="1100" cy="180" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero .description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: #ff6b6b;
+            color: white;
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+        }
+
+        .cta-button:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,107,107,0.4);
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: white;
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .secondary-button:hover {
             background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            max-width: 600px;
-            margin: 2rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            color: #1e3c72;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 90px 20px;
+        }
+
+        h2 {
+            font-size: 2.8rem;
             text-align: center;
+            margin-bottom: 3.5rem;
+            color: #1e3c72;
         }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .tagline {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 2rem;
-        }
-        .description {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
+
+        /* Features */
         .features {
-            text-align: left;
-            margin: 2rem 0;
+            background: #f8f9fa;
         }
-        .features ul {
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1e3c72;
+        }
+
+        .feature-card p {
+            color: #4a5568;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Courses */
+        .courses {
+            background: white;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 45px 35px;
+            border-radius: 20px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: scale(1.05);
+        }
+
+        .course-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .course-card .level {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .course-card p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .course-card ul {
             list-style: none;
+            margin-top: 20px;
         }
-        .features li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
+
+        .course-card ul li {
+            padding: 8px 0;
+            padding-left: 25px;
             position: relative;
         }
-        .features li:before {
-            content: "🤖";
+
+        .course-card ul li:before {
+            content: "✓";
             position: absolute;
             left: 0;
+            font-weight: bold;
         }
-        .status {
-            background: #e3f2fd;
-            border-left: 4px solid #1e3c72;
-            padding: 1rem;
-            margin-top: 2rem;
-            border-radius: 5px;
+
+        /* Learning Path */
+        .learning-path {
+            background: #f8f9fa;
         }
-        .status p {
+
+        .path-steps {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .path-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-right: 25px;
+        }
+
+        .step-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
             color: #1e3c72;
-            font-weight: 600;
         }
+
+        .step-content p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Target Audience */
+        .audience {
+            background: white;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .audience-card {
+            text-align: center;
+            padding: 35px 25px;
+        }
+
+        .audience-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+        }
+
+        .audience-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #1e3c72;
+        }
+
+        .audience-card p {
+            color: #4a5568;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .email-form {
+            max-width: 550px;
+            margin: 0 auto;
+            display: flex;
+            gap: 12px;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+        }
+
+        .submit-button {
+            background: #ff6b6b;
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
         footer {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-            color: #999;
-            font-size: 0.9rem;
+            background: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.3rem;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .secondary-button {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+
+            .path-step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>TrainingRobot</h1>
-        <p class="tagline">Robotics Training & AI Education Platform</p>
-        <p class="description">
-            Master the future of technology with comprehensive robotics and AI training programs
-            designed for individuals and organizations.
-        </p>
-        <div class="features">
-            <ul>
-                <li>Online robotics courses</li>
-                <li>AI & machine learning programs</li>
-                <li>Robot programming tutorials</li>
-                <li>Corporate training solutions</li>
-            </ul>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>TrainingRobot</h1>
+            <p class="tagline">Master Robotics & AI Automation</p>
+            <p class="description">
+                From beginner to expert, learn robotics, AI, and automation through hands-on projects
+                and expert-led courses. Build the skills that power the future.
+            </p>
+            <a href="#courses" class="cta-button">Explore Courses</a>
+            <a href="#join" class="secondary-button">Join Waitlist</a>
         </div>
-        <div class="status">
-            <p>🚧 Coming Soon - Website Under Development</p>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2>Why TrainingRobot?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Hands-On Learning</h3>
+                    <p>Build real robots and AI systems. Every course includes practical projects you can add to your portfolio.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from industry professionals with years of experience in robotics, AI, and automation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Certification</h3>
+                    <p>Earn industry-recognized certificates that prove your skills to employers worldwide.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Career Support</h3>
+                    <p>Get job-ready with resume reviews, interview prep, and direct connections to hiring companies.</p>
+                </div>
+            </div>
         </div>
-        <footer>
-            <p>trainingrobot.com &copy; 2025</p>
-        </footer>
-    </div>
+    </section>
+
+    <!-- Courses -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <h2>Course Tracks</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <span class="level">Beginner</span>
+                    <h3>Introduction to Robotics</h3>
+                    <p>Start your robotics journey from zero to building your first autonomous robot.</p>
+                    <ul>
+                        <li>Robot mechanics basics</li>
+                        <li>Sensors and actuators</li>
+                        <li>Basic programming</li>
+                        <li>First robot project</li>
+                    </ul>
+                </div>
+                <div class="course-card">
+                    <span class="level">Intermediate</span>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Master AI fundamentals and build intelligent systems that learn and adapt.</p>
+                    <ul>
+                        <li>Neural networks</li>
+                        <li>Computer vision</li>
+                        <li>Natural language processing</li>
+                        <li>AI model deployment</li>
+                    </ul>
+                </div>
+                <div class="course-card">
+                    <span class="level">Advanced</span>
+                    <h3>ROS & Autonomous Systems</h3>
+                    <p>Professional-level robotics using Robot Operating System and autonomous navigation.</p>
+                    <ul>
+                        <li>ROS architecture</li>
+                        <li>SLAM & navigation</li>
+                        <li>Motion planning</li>
+                        <li>Fleet management</li>
+                    </ul>
+                </div>
+                <div class="course-card">
+                    <span class="level">Professional</span>
+                    <h3>Industrial Automation</h3>
+                    <p>Design and deploy automation solutions for manufacturing and industrial applications.</p>
+                    <ul>
+                        <li>PLC programming</li>
+                        <li>Industrial robots</li>
+                        <li>Process optimization</li>
+                        <li>Safety systems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Path -->
+    <section class="learning-path">
+        <div class="container">
+            <h2>Your Learning Journey</h2>
+            <div class="path-steps">
+                <div class="path-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Choose Your Track</h3>
+                        <p>Select from beginner to advanced courses based on your current skill level and career goals.</p>
+                    </div>
+                </div>
+                <div class="path-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Learn by Doing</h3>
+                        <p>Watch video tutorials, complete hands-on labs, and build real projects with mentor support.</p>
+                    </div>
+                </div>
+                <div class="path-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Get Certified</h3>
+                        <p>Complete capstone projects and earn certificates that prove your expertise to employers.</p>
+                    </div>
+                </div>
+                <div class="path-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Advance Your Career</h3>
+                        <p>Join our alumni network, access job opportunities, and continue learning with advanced courses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="audience">
+        <div class="container">
+            <h2>Who Is This For?</h2>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-icon">🎓</div>
+                    <h3>Students</h3>
+                    <p>Build a strong foundation in robotics and AI. Perfect for university students and career switchers.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">💼</div>
+                    <h3>Professionals</h3>
+                    <p>Upskill in automation and AI to advance your career in tech, engineering, or manufacturing.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">🏢</div>
+                    <h3>Corporate Teams</h3>
+                    <p>Train your workforce with custom programs designed for your industry and technology stack.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="join">
+        <div class="container">
+            <h2>Ready to Start Learning?</h2>
+            <p>Join thousands of students and professionals mastering robotics and AI automation</p>
+            <form class="email-form" action="#" method="post">
+                <input type="email" class="email-input" placeholder="Enter your email" required>
+                <button type="submit" class="submit-button">Get Started</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TrainingRobot.com - Professional Robotics & AI Education</p>
+        </div>
+    </footer>
 </body>
 </html>
