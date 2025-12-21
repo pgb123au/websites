@@ -2,6 +2,24 @@
 
 All 5 websites are built and **successfully deployed** to Netlify.
 
+## 🚀 Quick Start - Deploying New Websites
+
+**For automated deployment of new websites:**
+```bash
+cd /c/Users/peter/Downloads/CC/websites
+python deploy_website_complete.py <domain>
+```
+
+**For detailed deployment procedures and troubleshooting:**
+- See `DEPLOYMENT_PROCEDURE.md` for complete step-by-step guide
+- See deployment scripts in this directory
+
+**Critical Requirements:**
+- Domain must use GoDaddy nameservers (or migrate first)
+- DNS must point to Netlify IP: `75.2.60.5`
+- SSL must be provisioned after DNS configuration
+- Always test with fresh DNS cache (`ipconfig /flushdns`)
+
 ## Deployed Sites
 
 | Domain | Netlify URL | Site ID | Status |
@@ -20,15 +38,34 @@ All 5 websites are built and **successfully deployed** to Netlify.
 2. ✅ Custom domains added to Netlify sites
 3. ✅ Nameservers migrated from Wix to GoDaddy (irentmy.com, trainingrobot.com)
 4. ✅ DNS records configured:
-   - **lakepakenham.com**: Already had GoDaddy DNS, configured A and CNAME records
-   - **irentmy.com**: Migrated from Wix nameservers, configured DNS
-   - **trainingrobot.com**: Migrated from Wix nameservers, configured DNS
-   - **gptbuilder.au**: Already had GoDaddy DNS, configured A and CNAME records
+   - **lakepakenham.com**: Already had GoDaddy DNS, configured A and CNAME records ✅ VERIFIED LIVE
+   - **irentmy.com**: Migrated from Wix nameservers, configured DNS (propagating)
+   - **trainingrobot.com**: Migrated from Wix nameservers, configured DNS (propagating)
+   - **gptbuilder.au**: Already had GoDaddy DNS, configured A and CNAME records ✅ VERIFIED LIVE
 
 **DNS Propagation Notes:**
 - Custom domains work immediately for lakepakenham.com and gptbuilder.au
 - irentmy.com and trainingrobot.com may take 24-48 hours for full DNS propagation (nameserver change)
 - All sites are accessible via their .netlify.app URLs immediately
+
+### Issues Encountered & Fixed
+
+**lakepakenham.com - Initial Deployment Issues:**
+1. ❌ DNS A record pointed to old IPs (15.197.225.128, 3.33.251.168) instead of Netlify (75.2.60.5)
+2. ❌ SSL certificate was not provisioned
+3. ❌ Local DNS caching showed site as broken even after fixes
+
+**Resolution:**
+- Updated DNS A record to 75.2.60.5
+- Provisioned SSL certificate via Netlify API
+- Flushed local DNS cache
+- Site now fully operational at https://lakepakenham.com
+
+**Lessons Learned:**
+- Always verify DNS records point to correct Netlify IP (75.2.60.5)
+- Provision SSL immediately after adding custom domain
+- Check for DNS caching issues during testing
+- See `DEPLOYMENT_PROCEDURE.md` for complete deployment checklist
 
 ## Websites Built
 
