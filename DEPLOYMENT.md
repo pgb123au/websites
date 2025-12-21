@@ -1,6 +1,6 @@
 # Website Deployment Guide
 
-All 4 websites are built and **successfully deployed** to Netlify.
+All 5 websites are built and **successfully deployed** to Netlify.
 
 ## Deployed Sites
 
@@ -10,6 +10,7 @@ All 4 websites are built and **successfully deployed** to Netlify.
 | **irentmy.com** | https://irentmy-com.netlify.app | 9d457076-1dfa-456f-952a-a8416cd2a252 | ✅ Deployed (needs DNS) |
 | **trainingrobot.com** | https://trainingrobot-com.netlify.app | ae337466-1bd5-4e13-88ab-bf27b83b6d9f | ✅ Deployed (needs DNS) |
 | **gptbuilder.au** | https://gptbuilder-au.netlify.app | 50faa887-d33d-42ee-87d8-1078d855b6a9 | ✅ Deployed (needs DNS) |
+| **monpangtiem.com** | https://monpangtiem.netlify.app | 93f2762e-d442-445c-8ddf-e8e7187e646e | ✅ Deployed (needs DNS) |
 
 ## Websites Built
 
@@ -19,6 +20,7 @@ All 4 websites are built and **successfully deployed** to Netlify.
 | **trainingrobot.com** | ✅ Built & Deployed | Robotics training & AI education platform |
 | **gptbuilder.au** | ✅ Built & Deployed | Custom AI solutions for Australian business |
 | **lakepakenham.com** | ✅ Built & Deployed | Complete guide to all lakes in Pakenham, Victoria |
+| **monpangtiem.com** | ✅ Built & Deployed | The Monpangtiem family photo gallery - 35 photos in masonry collage layout |
 
 ## Deployment Instructions
 
@@ -109,6 +111,7 @@ TTL: 1 Hour
 - irentmy.com → www CNAME to `irentmy-com.netlify.app`
 - trainingrobot.com → www CNAME to `trainingrobot-com.netlify.app`
 - gptbuilder.au → www CNAME to `gptbuilder-au.netlify.app`
+- monpangtiem.com → www CNAME to `monpangtiem.netlify.app`
 
 **Option B: Use Netlify DNS (recommended for new sites):**
 1. In Netlify site settings, go to "Domain management"
@@ -149,6 +152,17 @@ TTL: 1 Hour
 - **Special**: Google Maps links for each lake
 - **Sections**: Lakes (6 cards), Activities (6), Visitor Info, Community, Contact
 - **Existing Site**: 0e547869-b9d2-44d8-bdba-ce78104258d9
+
+### monpangtiem.com
+- **Type**: Vite + React + TypeScript + Tailwind CSS
+- **Features**: Family photo gallery with masonry collage layout
+- **Photos**: 35 family photos from 7 sets (Mumbai, Sydney, Kerala)
+- **Design**: Dark gradient background (slate-900 via purple-900)
+- **Layout**: Responsive masonry grid (1-4 columns based on screen size)
+- **Special**: Photos randomly shuffled on each page load
+- **Tech Stack**: React 18, Vite 5, Tailwind CSS, TypeScript
+- **Site ID**: 93f2762e-d442-445c-8ddf-e8e7187e646e
+- **Build**: `npm run build` → outputs to `dist/`
 
 ## Post-Deployment Checklist
 
