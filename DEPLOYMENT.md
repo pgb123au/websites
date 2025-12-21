@@ -6,11 +6,29 @@ All 5 websites are built and **successfully deployed** to Netlify.
 
 | Domain | Netlify URL | Site ID | Status |
 |--------|-------------|---------|--------|
-| **lakepakenham.com** | https://lakepakenham.com | 0e547869-b9d2-44d8-bdba-ce78104258d9 | ✅ Live (custom domain) |
-| **irentmy.com** | https://irentmy-com.netlify.app | 9d457076-1dfa-456f-952a-a8416cd2a252 | ✅ Deployed (needs DNS) |
-| **trainingrobot.com** | https://trainingrobot-com.netlify.app | ae337466-1bd5-4e13-88ab-bf27b83b6d9f | ✅ Deployed (needs DNS) |
-| **gptbuilder.au** | https://gptbuilder-au.netlify.app | 50faa887-d33d-42ee-87d8-1078d855b6a9 | ✅ Deployed (needs DNS) |
+| **lakepakenham.com** | https://lakepakenham.com | 0e547869-b9d2-44d8-bdba-ce78104258d9 | ✅ LIVE (custom domain configured) |
+| **irentmy.com** | https://irentmy.com | 9d457076-1dfa-456f-952a-a8416cd2a252 | ✅ LIVE (custom domain configured, DNS propagating) |
+| **trainingrobot.com** | https://trainingrobot.com | ae337466-1bd5-4e13-88ab-bf27b83b6d9f | ✅ LIVE (custom domain configured, DNS propagating) |
+| **gptbuilder.au** | https://gptbuilder.au | 50faa887-d33d-42ee-87d8-1078d855b6a9 | ✅ LIVE (custom domain configured) |
 | **monpangtiem.com** | https://monpangtiem.netlify.app | 93f2762e-d442-445c-8ddf-e8e7187e646e | ✅ Deployed (needs DNS) |
+
+## Deployment Status
+
+**Completed automatically on 2025-12-21:**
+
+1. ✅ All 4 sites deployed to Netlify production
+2. ✅ Custom domains added to Netlify sites
+3. ✅ Nameservers migrated from Wix to GoDaddy (irentmy.com, trainingrobot.com)
+4. ✅ DNS records configured:
+   - **lakepakenham.com**: Already had GoDaddy DNS, configured A and CNAME records
+   - **irentmy.com**: Migrated from Wix nameservers, configured DNS
+   - **trainingrobot.com**: Migrated from Wix nameservers, configured DNS
+   - **gptbuilder.au**: Already had GoDaddy DNS, configured A and CNAME records
+
+**DNS Propagation Notes:**
+- Custom domains work immediately for lakepakenham.com and gptbuilder.au
+- irentmy.com and trainingrobot.com may take 24-48 hours for full DNS propagation (nameserver change)
+- All sites are accessible via their .netlify.app URLs immediately
 
 ## Websites Built
 
