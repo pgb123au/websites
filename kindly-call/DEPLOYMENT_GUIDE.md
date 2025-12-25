@@ -1,13 +1,30 @@
 # Kindly Call - Deployment Guide
 
-## Status Summary
+## Status Summary (Updated 2025-12-25)
 
 | Component | Status | Notes |
 |-----------|--------|-------|
 | **Database** | DEPLOYED | 8 tables in retellai_prod |
 | **n8n Workflows** | DEPLOYED | 4 workflows ACTIVE |
 | **Website** | READY | Static HTML/CSS/JS |
-| **RetellAI Agent** | PENDING | Manual deploy required |
+| **RetellAI Agent** | LIVE | agent_c0c4d6a55cbd8713f4801a53ce |
+| **Phone Number** | CONNECTED | +61 2 4062 0999 |
+| **First Test Call** | SUCCESS | call_aa98def1027a87e021b397471f0 |
+
+---
+
+## Live System Details
+
+### RetellAI Agent
+- **Agent ID:** `agent_c0c4d6a55cbd8713f4801a53ce`
+- **Conversation Flow:** `conversation_flow_ae0d6e0c58b9`
+- **Workspace:** Yes AI Production
+- **Dashboard:** https://dashboard.retellai.com/agents/agent_c0c4d6a55cbd8713f4801a53ce
+
+### Phone Number
+- **Number:** +61 2 4062 0999 (Australian)
+- **Inbound:** Answers as Kindly Call wellness check-in
+- **Outbound:** Can initiate calls via API
 
 ---
 
