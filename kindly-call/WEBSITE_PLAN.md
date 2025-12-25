@@ -204,6 +204,16 @@ Build a world-class website that instills trust, communicates value clearly, and
 - **Daily**: Main revenue tier - where most customers should land
 - **Family**: Premium for multi-senior households
 
+**Free Trial:**
+- **14-day free trial** on ALL plans - no credit card required
+- During trial: Full access to chosen tier's features
+- Trial includes 2 calls for Starter, 6 calls for Essential, 14 calls for Daily/Family
+- Email reminders: Day 10 ("4 days left"), Day 13 ("Last day - add payment to continue")
+- If no payment added: Service pauses, data retained 30 days
+- Easy reactivation anytime
+
+**Marketing:** "Try FREE for 14 days. From just $1/week after."
+
 **Billing Options:**
 - Starter: Weekly billing ONLY ($1/week = $4.33/mo equivalent)
 - All others: Monthly or Annual (save 2 months = 16% discount)
@@ -215,7 +225,8 @@ Build a world-class website that instills trust, communicates value clearly, and
 - After call > 3 min ends: "Your loved one wanted to chat longer. Upgrade for extended calls."
 
 **Additional Elements:**
-- Hero: "From just $1 per week - because everyone deserves a daily check-in"
+- Hero: "Try FREE for 14 days. Then from just $1 per week."
+- Sub-hero: "No credit card required. No obligations."
 - Trust: "No lock-in contracts. Cancel anytime."
 - Social proof: Testimonials near each tier
 - FAQ about billing, upgrades, cancellation
@@ -776,13 +787,22 @@ CREATE POLICY "Access shared recipients" ON recipients
 - Family: $69/month (AUD)
 
 **Features:**
+- **14-day free trial** - no credit card required upfront
 - Starter: Weekly billing (simpler, lower commitment feel)
 - Other tiers: Monthly or annual billing (16% discount = 2 months free)
-- 7-day free trial for Essential+ tiers
+- Card collected at end of trial or when user ready
 - Automatic card retry on failed payments
 - Proration on plan upgrades
 - Easy upgrade path with prorated credits
 - Refund handling (pro-rata for annual)
+
+**Trial Flow (Stripe):**
+1. User signs up → Creates Stripe Customer (no payment method)
+2. Trial starts → Subscription with `trial_end` set to +14 days
+3. Day 10 → Email reminder to add payment
+4. Day 13 → Final reminder
+5. Day 14 → If payment method added: charge begins. If not: subscription pauses
+6. Webhook: `customer.subscription.trial_will_end` triggers reminders
 
 ### Stripe Integration Points
 
