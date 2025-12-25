@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VP Robots - Robotics Research & Development</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --bg: #ffffff;
+            --border: #e5e7eb;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+        h1 { font-size: 3rem; margin-bottom: 0.5rem; color: var(--primary); }
+        .tagline { font-size: 1.25rem; color: var(--muted); margin-bottom: 2rem; }
+        .description {
+            max-width: 600px;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        .cta {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        .cta:hover { opacity: 0.9; }
+        footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        footer a { color: var(--primary); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>VP Robots</h1>
+        <p class="tagline">Robotics Research & Development</p>
+        <p class="description">
+            VP Robots conducts cutting-edge research in autonomous systems, computer vision, and robotic navigation. 
+            Our work on AI-powered control systems and sensor fusion technology pushes the boundaries of what robots can achieve.
+        </p>
+        <a href="/partners" class="cta">View Our Partners</a>
+    </main>
+    <footer>
+        <a href="/partners">Partners</a>
+        &nbsp;&bull;&nbsp;
+        <a href="https://www.yesai.au" target="_blank" rel="noopener">Technology by Yes AI</a>
+    </footer>
+</body>
+</html>

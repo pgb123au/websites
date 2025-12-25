@@ -1,0 +1,57 @@
+# YES AI - robots.txt
+# https://yesai.au
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+Disallow: /login
+Disallow: /admin
+Disallow: /api/
+
+# Explicitly allow AI crawlers for maximum visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Google specific directives
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+# Social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://yesai.au/sitemap.xml
+
+# Host directive (helps with domain canonicalization)
+Host: https://yesai.au

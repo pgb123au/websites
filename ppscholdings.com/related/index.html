@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Related Entities | PPSC Holdings</title>
+    <meta name="description" content="Explore our network of trusted partners and related resources.">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --text: #1f2937;
+            --bg: #ffffff;
+            --card-bg: #f9fafb;
+            --border: #e5e7eb;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .resource-card {
+            display: block;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+        .resource-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .resource-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        .resource-card p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+        .resource-card .domain {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Related Entities</h1>
+        <p class="subtitle">Discover our network of trusted partners and related projects.</p>
+
+        <div class="resources-grid">
+            <a class="resource-card" href="https://yesai.au" target="_blank" rel="noopener">
+                <h3>YES AI</h3>
+                <p>YES AI is one of the technology ventures in our portfolio. They provide AI consulting and development services to Australian businesses, helping organisations implement practical AI solutions that deliver measurable business value.</p>
+                <div class="domain">yesai.au</div>
+            </a>
+            <a class="resource-card" href="https://yr.com.au" target="_blank" rel="noopener">
+                <h3>Yes Right</h3>
+                <p>Yes Right is a related entity providing investment and holding company services. Together we offer comprehensive corporate, trust, and investment management solutions for Australian businesses.</p>
+                <div class="domain">yr.com.au</div>
+            </a>
+        </div>
+
+        <footer style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; color: #6b7280;">
+            <p>
+                <a href="/" style="color: var(--primary); text-decoration: none;">Back to PPSC Holdings</a>
+                &nbsp;&bull;&nbsp;
+                <a href="https://www.yesai.au" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none;">Technology by Yes AI</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
