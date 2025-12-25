@@ -36,7 +36,7 @@ Build a world-class website that instills trust, communicates value clearly, and
 2. **Comprehensive Health Monitoring** - Not just safety, but wellness tracking
 3. **Family Dashboard** - Real-time insights and daily summaries
 4. **Transparency** - Clear about AI technology, builds trust
-5. **Affordable** - $29-59/month vs expensive human alternatives
+5. **Affordable** - From just $1/week vs expensive human alternatives
 
 ### Success Metrics
 - Conversion rate: 3-5% visitor to trial signup
@@ -136,7 +136,9 @@ Build a world-class website that instills trust, communicates value clearly, and
    - Highlight anomaly detection
 
 6. **Pricing Preview**
-   - 3 plan cards (Basic, Premium, Family)
+   - Headline: "From just $1 per week"
+   - 4 plan cards (Starter, Essential, Daily, Family)
+   - Highlight "Daily" as best value
    - CTA: "View Full Pricing"
 
 7. **FAQ Snippets**
@@ -173,29 +175,51 @@ Build a world-class website that instills trust, communicates value clearly, and
 ---
 
 #### Pricing Page `/pricing`
-**Purpose:** Clear pricing, drive conversions
+**Purpose:** Clear pricing with compelling entry point, drive conversions and upsells
+
+**Marketing Hook:** "From just $1 per week"
 
 **Plans:**
 
-| Feature | Basic $29/mo | Premium $49/mo | Family $79/mo |
-|---------|--------------|----------------|---------------|
-| Daily calls | 1/day | Customizable | Customizable |
-| Call duration | Up to 5 min | Up to 10 min | Up to 10 min |
-| Family members | 1 | Up to 3 | Up to 5 |
-| Seniors covered | 1 | 1 | Up to 3 |
-| Call summaries | Basic | Detailed + AI insights | Detailed + AI insights |
-| Health tracking | Basic | Advanced + trends | Advanced + trends |
-| Emergency alerts | Yes | Priority | Priority |
-| Medication reminders | No | Yes | Yes |
-| Call time flexibility | Fixed time | Flexible window | Flexible window |
-| SMS fallback | No | Yes | Yes |
-| Priority support | No | Yes | Yes |
+| Feature | Starter $1/week | Essential $19/mo | Daily $39/mo | Family $69/mo |
+|---------|-----------------|------------------|--------------|---------------|
+| **Marketing** | "From $1/week" | "Most Popular" | "Best Value" | "Complete Care" |
+| Calls | 1/week | 3/week | Daily | Daily |
+| Call duration | Up to 3 min | Up to 5 min | Up to 8 min | Up to 10 min |
+| Family dashboard | No | Basic | Full | Full |
+| Family members | 1 (email only) | 1 | Up to 3 | Up to 5 |
+| Seniors covered | 1 | 1 | 1 | Up to 2 |
+| Call summaries | Email only | Email + web | Full AI insights | Full AI insights |
+| Health tracking | No | Basic | Advanced + trends | Advanced + trends |
+| Emergency alerts | SMS to 1 contact | SMS to 2 contacts | Priority + push | Priority + push |
+| Medication reminders | No | No | Yes | Yes |
+| Call time flexibility | Fixed day/time | Choose days | Flexible window | Flexible window |
+| SMS fallback on missed | No | Yes | Yes | Yes |
+| Priority support | No | No | No | Yes |
+| **Upsell trigger** | - | "Add more calls" | "Add family members" | "Add more seniors" |
+
+**Pricing Psychology:**
+- **Starter**: Loss leader / break-even (~$4.33/mo, ~$3.28 cost) - hooks customers
+- **Essential**: First profitable tier - natural upgrade when weekly isn't enough
+- **Daily**: Main revenue tier - where most customers should land
+- **Family**: Premium for multi-senior households
+
+**Billing Options:**
+- Starter: Weekly billing ONLY ($1/week = $4.33/mo equivalent)
+- All others: Monthly or Annual (save 2 months = 16% discount)
+
+**Upsell Prompts (In-App):**
+- After 2 weeks on Starter: "Upgrade to Essential for more calls"
+- If missed call concern: "Upgrade for daily peace of mind"
+- If family member tries to add: "Upgrade to Daily for family access"
+- After call > 3 min ends: "Your loved one wanted to chat longer. Upgrade for extended calls."
 
 **Additional Elements:**
-- Toggle: Monthly / Annual (save 15%)
-- "14-Day Free Trial - No Credit Card Required"
-- FAQ about billing
-- Enterprise/B2B inquiry form
+- Hero: "From just $1 per week - because everyone deserves a daily check-in"
+- Trust: "No lock-in contracts. Cancel anytime."
+- Social proof: Testimonials near each tier
+- FAQ about billing, upgrades, cancellation
+- Enterprise/B2B inquiry form (aged care providers: volume discounts from $8/resident/mo)
 
 ---
 
@@ -746,16 +770,19 @@ CREATE POLICY "Access shared recipients" ON recipients
 ### Provider: Stripe Australia
 
 **Products:**
-- Basic: $29/month (AUD)
-- Premium: $49/month (AUD)
-- Family: $79/month (AUD)
+- Starter: $1/week (AUD) - weekly recurring
+- Essential: $19/month (AUD)
+- Daily: $39/month (AUD)
+- Family: $69/month (AUD)
 
 **Features:**
-- 14-day free trial (no card required for trial)
-- Monthly or annual billing (15% discount annual)
+- Starter: Weekly billing (simpler, lower commitment feel)
+- Other tiers: Monthly or annual billing (16% discount = 2 months free)
+- 7-day free trial for Essential+ tiers
 - Automatic card retry on failed payments
-- Proration on plan changes
-- Refund handling
+- Proration on plan upgrades
+- Easy upgrade path with prorated credits
+- Refund handling (pro-rata for annual)
 
 ### Stripe Integration Points
 
