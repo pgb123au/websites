@@ -51,7 +51,7 @@ Build a world-class website that instills trust, communicates value clearly, and
 
 ### Primary: Adult Children (Ages 35-60)
 **Persona: "Worried Sarah"**
-- Has elderly parent living alone (60km away)
+- Has elderly parent living alone (over 30 minutes round trip driving time away)
 - Works full-time, can't visit daily
 - Worried about falls, loneliness, health decline
 - Wants peace of mind without surveillance
@@ -1005,29 +1005,123 @@ Base unit: 4px
 
 ## 13. Go-to-Market Features
 
-### Lead Capture
+### VIRAL-FIRST STRATEGY (Zero Marketing Budget)
 
-- Exit-intent popup with value proposition
-- Newsletter signup (educational content)
-- Webinar/demo signups
+**Core Philosophy:** The world NEEDS this. Let the product speak for itself.
+
+**Viral Mechanics Built Into Product:**
+
+1. **Family Sharing Loop**
+   - Every call summary email includes: "Know someone who could use this? Share with one click"
+   - Dashboard: "Add another family member's parent" (easy signup for their own)
+   - After positive call: "Share {{parent_name}}'s experience on Facebook/WhatsApp"
+
+2. **Emotional Shareability**
+   - Generate shareable "Call Highlights" - heartwarming moments from calls
+   - Weekly email: "{{parent_name}} mentioned they loved chatting about {{topic}}"
+   - "My mum's AI friend" stories → naturally shareable
+
+3. **Word of Mouth Triggers**
+   - Service is so good people WANT to tell others
+   - Emergency save stories (detected a fall, family saved the day)
+   - Loneliness reduction testimonials
+
+4. **Referral Program (Core Growth Engine)**
+   - Referrer: 1 month FREE
+   - Referee: 1 month FREE (on top of 14-day trial)
+   - "Give a month, get a month" - simple, generous
+   - Shareable referral link in every email
+   - Track: `?ref=XXXXX` codes
+
+5. **Social Proof Amplification**
+   - Live counter: "X,XXX families connected this week"
+   - Map: "Kindly Call is helping families in X countries"
+   - Testimonial wall with photos
+
+### Partner/White-Label Strategy
+
+**Potential Partners Identified:**
+
+| Partner | Type | Opportunity |
+|---------|------|-------------|
+| **Baptcare.org.au** | Aged care provider | White-label for their clients, volume pricing |
+| **ReigniteHealth.com.au** | Healthcare/wellness | Cross-promote, shared infrastructure |
+| **Support at Home providers** | Government-funded | B2B volume deals |
+| **NDIS providers** | Disability services | Disability-focused variant |
+
+**White-Label Features (Phase 2):**
+- Custom branding (logo, colors, name)
+- Custom voice greeting ("This is your daily call from Baptcare...")
+- Partner dashboard (aggregate reporting)
+- API access for integration
+- Volume pricing: From $8/resident/month (50+ residents)
+
+**Co-Marketing with Partners:**
+- Joint press releases
+- Partner testimonials
+- "Powered by Kindly Call" badge
+- Shared case studies
+
+### Global Expansion Ready
+
+**Phase 1: Australia** (Launch)
+- Australian accents, emergency (000), Support at Home integration
+
+**Phase 2: English-speaking countries** (Month 3-6)
+- UK (NHS integration potential, 999 emergency)
+- New Zealand (similar culture, 111 emergency)
+- USA (massive market, 911 emergency)
+- Canada (healthcare integration, 911 emergency)
+
+**Localization Requirements:**
+- Voice: Local accent options
+- Emergency: Local emergency numbers
+- Compliance: Local privacy laws (GDPR for UK, HIPAA awareness for US)
+- Currency: Local pricing
+- Timezone: Automatic handling
+
+**Technical Prep for Global:**
+- Multi-currency Stripe
+- i18n ready (even if English-only initially)
+- Timezone-aware scheduling
+- Configurable emergency numbers per country
+
+### Organic/SEO Strategy
+
+**Target Keywords:**
+- "daily check in calls for elderly"
+- "AI companion for seniors"
+- "elderly wellness calls"
+- "check on my parents daily"
+- "lonely parent solution"
+
+**Content Strategy (Zero Budget):**
+- Blog: Elderly care tips (SEO)
+- "Loneliness epidemic" thought leadership
+- Guest posts on aged care sites
+- Reddit/Quora answers about elderly care
+- YouTube: Demo videos, testimonials
 
 ### Social Proof
 
-- Testimonial carousel
-- Trust badges (security, Australian made)
-- "X families trust Kindly Call" counter
+- Testimonial carousel (collect from beta users)
+- Trust badges (security, Australian made, partner logos)
+- Live counter: "X families trust Kindly Call"
+- Partner logos: "Trusted by Baptcare, Reignite Health"
 
 ### Referral Program
 
-- Existing customers invite friends
-- $20 credit for referrer, 1 month free for referee
-- Track referral source
+- Referrer: 1 month FREE on current plan
+- Referee: 1 month FREE (stacks with 14-day trial = 6 weeks free!)
+- Shareable link in every email and dashboard
+- Track referral source for analytics
 
 ### Content Marketing
 
 - Blog with elderly care tips
 - Resource guides (PDF downloads)
 - FAQ optimization for SEO
+- Partner content cross-promotion
 
 ---
 
